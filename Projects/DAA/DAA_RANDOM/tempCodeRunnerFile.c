@@ -1,0 +1,1 @@
+swap(&item_nos[j],&item_nos[j + 1]);
