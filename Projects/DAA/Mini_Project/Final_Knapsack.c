@@ -20,25 +20,26 @@ void bubbleSort(float [],int [],int ); //Bubble Sorting
 void Profitable_Items(int [], int [], int, int); //Function to find out the most profitable items
 
 int main(int argc, char **agrv){
-    initscr();
-    int X = getmaxx(stdscr);
-    int Y = getmaxy(stdscr);
+    // initscr();
+    // int X = getmaxx(stdscr);
+    // int Y = getmaxy(stdscr);
     int n, Max_W, Max_P, Input_MaxP;
     int * Profits;
     int * Weights;
-    char *options[2] = {"Custom Input", "Random Input"};
-    cbreak();
-    noecho();
-    getmaxyx(stdscr, Y, X);
-    WINDOW * menuwin = newwin(6, X-X/2, Y-Y/2, 5);
-    box(menuwin, 0, 0);
-    keypad(menuwin, true);
-    int choice = display_ui(menuwin, options);
-    refresh();
-    if (isatty(fileno(stdout))){
-    setbuf(stdout, NULL);
-    }
-    endwin();
+    // char *options[2] = {"Custom Input", "Random Input"};
+    // cbreak();
+    // noecho();
+    // getmaxyx(stdscr, Y, X);
+    // WINDOW * menuwin = newwin(6, X-X/2, Y-Y/2, 5);
+    // box(menuwin, 0, 0);
+    // keypad(menuwin, true);
+    // int choice = display_ui(menuwin, options);
+    // refresh();
+    // if (isatty(fileno(stdout))){
+    // setbuf(stdout, NULL);
+    // }
+    // endwin();
+    int choice = 1;
     printf("%d", choice);
     switch (choice){
         case 0:
@@ -55,7 +56,7 @@ int main(int argc, char **agrv){
             break;
         case 1:
             srand(time(0)*0.1);
-            n = random_(1,3) * 5;
+            n = random_(2,5) * 2;
             srand(time(0)*2.1);
             Max_W = random_(2,8) * 10;
             srand(time(0)*3);
@@ -78,7 +79,8 @@ int main(int argc, char **agrv){
     Max_P = Dynamic_Knapsack(Profits, Weights, n, Max_W);
     printf("Max Weight -%d\nMax Profit - %d\nNumber of Items - %d\n", Max_W, Max_P, n);
     printf("Enter the Maximum Profit: ");
-    scanf("%d", &Input_MaxP);
+    // scanf("%d", &Input_MaxP);
+    Input_MaxP = 20;
     if(Max_P != Input_MaxP){
         printf("Wrong!\nThe Most Profitable items are-\n");
         Profitable_Items(Profits, Weights, n, Max_W);
@@ -208,7 +210,7 @@ void Profitable_Items(int Profits[], int Weights[],int n, int Max_W){
     printf("Item_nos\tProfit\tWeight\tProfit/Weight\n");
     for(int i = 0; i < n; ++i){
         printf("%d\t%d\t%d\t%f\n", item_nos[i], Profits[i], Weights[i], p_w[i]);
-    }
+    }=
     bubbleSort(p_w,item_nos,n);
     // int * ptr = &item_nos[0];
     // printf("\n\n");
