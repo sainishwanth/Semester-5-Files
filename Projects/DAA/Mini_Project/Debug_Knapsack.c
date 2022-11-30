@@ -71,8 +71,12 @@ int main(int argc, char **agrv){
     }
     printf("\nMax Weight - %d\n", Max_W);
     printf("\nProfit\tWeight\n");
+    for(int i = 0; i < n; ++i){
+        printf("%d\t%d\n", Profits[i], Weights[i]);
+    }
     Draw(Profits, Weights, n);
     Max_P = Dynamic_Knapsack(Profits, Weights, n, Max_W);
+    printf("Max Weight -%d\nMax Profit - %d\nNumber of Items - %d\n", Max_W, Max_P, n);
     printf("Enter the Maximum Profit: ");
     scanf("%d", &Input_MaxP);
     if(Max_P != Input_MaxP){
@@ -211,16 +215,57 @@ void Profitable_Items(int Profits[], int Weights[],int n, int Max_W){
         p_w[i] = p_float / w_float;
         item_nos[i] = i;
     }
+    printf("Before Sorting - \n");
+    printf("Weight - %d\n", Max_W);
+    printf("Number of Items = %d\n", n);
+    printf("Item_nos\tProfit\tWeight\tProfit/Weight\n");
+    for(int i = 0; i < n; ++i){
+        printf("%d\t%d\t%d\t%f\n", item_nos[i], Profits[i], Weights[i], p_w[i]);
+    }
     bubbleSort(p_w,item_nos,n);
+    // int * ptr = &item_nos[0];
+    // printf("\n\n");
+    for(int i = 0; i < n; ++i){
+        printf("%d\n", item_nos[i]);
+    }
+    // printf("\n\n");
+    // printf("\n\n\n");
+    // printf("After Sorting - \n");
+    // printf("Weight - %d\n", Max_W);
+    // printf("Number of Items = %d\n", n);
+    // printf("Item nos\tProfit\tWeight\tProfit/Weight\t\n");
+    // ptr = &item_nos[0];
+    // for(int i = 0; i < n; ++i){
+    //     printf("%d\t%d\t%d\t%f\n", item_nos[*ptr], Profits[*ptr], Weights[*ptr], p_w[i]);
+    //     ptr++;
+    // }
+    // //Draw(Profits, Weights, n);
+    // ptr = &item_nos[0];
+    //  printf("\n\n");
+    //     for(int i = 0; i < n; ++i){
+    //     printf("%d\n", item_nos[i]);
+    // }
+    int * ptr2 = item_nos;
+    printf("\n\n");
+    for(int i = 0; i < n; ++i){
+        printf("%d", item_nos[i]);
+    }
+    printf("\n\n");
+    for(int i = 0; i < n; ++i){
+        printf("%d", *ptr2++);
+    }
+    printf("\n\n");
     int * ptr = item_nos;
     for(int i = 0; i < n; ++i){
         if(Weights[*ptr] > curr_W){
+            printf("%d", i);
             ptr++;
             continue;
         }
         count_W += Weights[*ptr];
         curr_W -= Weights[*ptr];
         max_P_ += Profits[*ptr];
+        printf("%d\t%d\t%d\t%f\n", item_nos[i],Profits[*ptr], Weights[*ptr], p_w[i]);
         rectangle(Profits[*ptr], Weights[*ptr]);
         ptr++;
         if(count_W >= Max_W){
