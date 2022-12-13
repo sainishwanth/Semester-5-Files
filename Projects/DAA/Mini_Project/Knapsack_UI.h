@@ -1,3 +1,5 @@
 #include<ncurses.h>
 
-int display_ui(WINDOW *, char *[]);
+int main_menu(WINDOW *, char *[]);
+
+

@@ -15,6 +15,7 @@ usr_start = 0
 usr_stop = 0
 start = 0
 stop = 0
+
 def knapSack(profits, weights, W, n):
     K = [[0 for x in range(W + 1)] for x in range(n + 1)]
     for i in range(n + 1):
@@ -76,6 +77,7 @@ def verifyCheck(Str: StringVar, tk_Window):
 def main():
     global profits, weights, Max_W, n, ref, check, Max_P, usr_start, usr_stop, start, stop
     Random_Assignment()
+    print(f"Max Weigth - {Max_W}")
     start = time.time()
     Max_P = knapSack(profits, weights, Max_W, n)
     stop = time.time()
@@ -84,7 +86,7 @@ def main():
     print(weights)
     mainWindow = Tk()
     usr_start = time.time()
-    mainWindow.geometry("750x450")
+    mainWindow.geometry("750x500")
     mainWindow.title("Nabsack")
     row = 0
     col = 1
@@ -104,7 +106,7 @@ def main():
         btn.grid(row = row, column= col,  padx=5)
         ref.append(btn)
     Str = StringVar()
-    l = Label(mainWindow, text="Enter the Max Profit", font=('Fira Code', 30))
+    l = Label(mainWindow, text=f"Max Weight - {Max_W}\nEnter the Max Profit", font=('Fira Code', 30))
     l.grid(column=2, row=10)
     Str = StringVar()
     e = Entry(mainWindow, textvariable=Str)

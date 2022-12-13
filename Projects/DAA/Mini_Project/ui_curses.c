@@ -1,6 +1,6 @@
 #include<ncurses.h>
 
-int display_ui(WINDOW * menuwin, char * options[]){
+int main_menu(WINDOW * menuwin, char * options[]){
     // initscr();
 
     // int X, Y;

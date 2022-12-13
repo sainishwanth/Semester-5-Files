@@ -33,7 +33,7 @@ int main(int argc, char **agrv){
     WINDOW * menuwin = newwin(6, X-X/2, Y-Y/2, 5);
     box(menuwin, 0, 0);
     keypad(menuwin, true);
-    int choice = display_ui(menuwin, options);
+    int choice = main_menu(menuwin, options);
     refresh();
     if (isatty(fileno(stdout))){
     setbuf(stdout, NULL);

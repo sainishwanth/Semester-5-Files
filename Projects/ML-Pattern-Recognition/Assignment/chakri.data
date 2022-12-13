@@ -1,0 +1,20 @@
+COUNTRY,COMPANY NAME,LEVEL,SALARY ,YOE
+India,Intel,L1,7653,1
+India,Navi,Senior Engineer,54375,4
+India,Intuit,Staff Software Enginner,83333,5
+India,Lenovo,L1,4000,1
+India,Accenture ,Team Leader,45000,2
+India,Cognizant,L2,33333,1
+India,Ericsson,L2,86666,5
+India,Predictive Research,L2,87102,4
+India,Infosys,L1,14559,1
+India,Apple,Engineer(AI&ML),40766,1
+United States,Amazon,SDE I,87452,1
+United States,Equifax,p3,95683,1
+United States,Raytheon,p3,386669,1
+United States,Target,L5,2103950,3
+United States,Harmonic,L3,1984630,2
+United States,Lenovo,L1,400000,1
+United States,Facebook,E4,1178600,3
+United States,Autodesk,Senior Software Engineer 2,2094210,4
+United States,Twitter,Staff SWE,589302,6

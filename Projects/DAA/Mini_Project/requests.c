@@ -1,45 +1,18 @@
-#include <stdio.h>
+#include<stdio.h>
 #include <curl/curl.h>
- 
-int main(void)
-{
-  CURL *curl;
-  CURLcode res;
- 
-  curl = curl_easy_init();
-  if(curl) {
-    struct curl_slist *chunk = "curl https://www.random.org/integers/\?num\=10\&min\=1\&max\=6\&col\=1\&base\=10\&format\=plain\&rnd\=new";
- 
-    /* Remove a header curl would otherwise add by itself */
-    chunk = curl_slist_append(chunk, "Accept:");
- 
-    /* Add a custom header */
-    chunk = curl_slist_append(chunk, "Another: yes");
- 
-    /* Modify a header curl otherwise adds differently */
-    chunk = curl_slist_append(chunk, "Host: example.com");
- 
-    /* Add a header with "blank" contents to the right of the colon. Note that
-       we are then using a semicolon in the string we pass to curl! */
-    chunk = curl_slist_append(chunk, "X-silly-header;");
- 
-    /* set our custom set of headers */
-    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, chunk);
- 
-    curl_easy_setopt(curl, CURLOPT_URL, "localhost");
-    curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
- 
-    res = curl_easy_perform(curl);
-    /* Check for errors */
-    if(res != CURLE_OK)
-      fprintf(stderr, "curl_easy_perform() failed: %s\n",
-              curl_easy_strerror(res));
- 
-    /* always cleanup */
-    curl_easy_cleanup(curl);
- 
-    /* free the custom headers */
-    curl_slist_free_all(chunk);
-  }
-  return 0;
+#include<stdlib.h>
+#include<string.h>
+
+int main(){
+    // CURL * curl = curl_easy_init();
+    char min[2] = '10';
+    char max[2] = '20';
+    char n = '5';
+    char * URL1 = "https://www.random.org/integers/\?num\\=";
+    char * strcat
+    char *URL[3] = {"https://www.random.org/integers/\?num\\=",n,"\\&min\\=",min,"\\&max\\=", max, "\\&col\\=1\\&base\\=10\\&format\\=plain\\&rnd\\=new"};
+    // curl_easy_setopt(curl, CURLOPT_URL, URL);
+
+    // curl_easy_cleanup(curl);
+    printf("\n%s", URL);
 }
